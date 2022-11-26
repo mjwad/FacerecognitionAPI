@@ -17,7 +17,8 @@ const db=require('knex')({
         database:process.env.PG_DATABASE,
         ssl:true
     }
-})
+}).catch(console.log)
+console.log('HRllo'+process.env.PG_DATABASE)
 // db.select().from('users').then(
 //     data=>console.log(data)
 // )
