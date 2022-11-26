@@ -7,10 +7,13 @@ const register=require('./Controllers/register')
 const signin=require('./Controllers/signin')
 const profile=require('./Controllers/profile')
 const image=require('./Controllers/image')
+const parse = require("pg-connection-string").parse;
+const pgconfig = parse(process.env.DATABASE_URL);
+pgconfig.ssl = { rejectUnauthorized: false };
 const db=require('knex')({
     client:'pg',
     connection:{
-        connectionString:process.env.DATABASE_URL,
+        connectionString:pgconfig,
         ssl:false
     }
 })
