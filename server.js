@@ -24,7 +24,7 @@ app.use(cors())
 app.get('/',(req,res)=>{
  //    db.select().from('users').then(
  // )
-    const val=db.select('*').from('users')
+    db.select('*').from('users')
         .then((foo) => {
             res.send('URL:  '+foo)
         });
