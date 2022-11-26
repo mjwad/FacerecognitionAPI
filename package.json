@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "herok": "git add . && git commit -m 'msg' && git push && git push heroku && heroku open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
