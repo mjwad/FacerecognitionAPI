@@ -7,10 +7,6 @@ const register=require('./Controllers/register')
 const signin=require('./Controllers/signin')
 const profile=require('./Controllers/profile')
 const image=require('./Controllers/image')
-const clarifai=require('clarifai')
-const Pool = require("pg").Pool;
-require("dotenv").config();
-const isProduction = process.env.NODE_ENV === "production";
 const db=require('knex')({
     client:'pg',
     connection:{
