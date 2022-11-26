@@ -26,8 +26,8 @@ app.get('/',(req,res)=>{
  // )
     db.select('*').from('users')
         .then((foo) => {
-            res.send('URL:  '+foo)
-        });
+          return  res.send('URL:  '+foo)
+        }).catch(err=>res.json(err));
     res.send('no repsonse')
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
