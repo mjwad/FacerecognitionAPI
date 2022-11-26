@@ -11,7 +11,7 @@ const db=require('knex')({
     client:'pg',
     connection:{
         connectionString:process.env.DATABASE_URL,
-        ssl:true
+        ssl:false
     }
 })
 // db.select().from('users').then(
@@ -22,13 +22,7 @@ const app=express()
 app.use(bodyParser.json())
 app.use(cors())
 app.get('/',(req,res)=>{
-    const db=require('knex')({
-        client:'pg',
-        connection:{
-            connectionString:process.env.DATABASE_URL,
-            ssl:false
-        }
-    })
+
     res.send('URL'+db)
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
