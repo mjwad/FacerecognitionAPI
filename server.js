@@ -27,11 +27,8 @@ app.use(bodyParser.json())
 app.use(cors())
 app.get('/',(req,res)=>{
     db.select().from('users').then(
- response=> {
-  if(response)
-      res.send(response)
- })
-
+ )
+res.send('working')
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
