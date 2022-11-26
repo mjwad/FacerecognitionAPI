@@ -10,11 +10,7 @@ const image=require('./Controllers/image')
 const db=require('knex')({
     client:'pg',
     connection:{
-        host:process.env.PG_HOST,
-        port:process.env.PG_PORT,
-        user:process.env.PG_USER,
-        password:process.env.PG_PASSWORD,
-        database:process.env.PG_DATABASE,
+        connectionString:process.env.DATABASE_URL
         ssl:true
     }
 })
@@ -28,7 +24,7 @@ app.use(cors())
 app.get('/',(req,res)=>{
  //    db.select().from('users').then(
  // )
-res.send('HRllo'+process.env.PG_DATABASE)
+res.send('URL:  '+process.env.DATABASE_URL)
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
