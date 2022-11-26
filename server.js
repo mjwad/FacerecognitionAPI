@@ -17,8 +17,7 @@ const db=require('knex')({
         database:process.env.PG_DATABASE,
         ssl:true
     }
-}).catch(console.log)
-console.log('HRllo'+process.env.PG_DATABASE)
+})
 // db.select().from('users').then(
 //     data=>console.log(data)
 // )
@@ -29,7 +28,7 @@ app.use(cors())
 app.get('/',(req,res)=>{
  //    db.select().from('users').then(
  // )
-res.send('working')
+res.send('HRllo'+process.env.PG_DATABASE)
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
