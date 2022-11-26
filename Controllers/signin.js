@@ -8,10 +8,11 @@ const handleSignin=(req,res,db,bcrypt)=>{
     {
         return res.status(404).json('Invalid form Submission')
     }
+    res.json('hello')
     db.select('email','hash').from('login')
         .where('email','=',email)
         .then(data=>{
-            res.json('hello')
+
             const isValid=  bcrypt.compareSync(password,data[0].hash);
             if(isValid)
             {
