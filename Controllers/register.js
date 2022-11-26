@@ -28,11 +28,10 @@ const handleRegister=(req,res,db,bcrypt)=>{
                     )
                     .catch(err=>res.status(404).json('unable to register'))
 
-            }).then(trx.commit)
-            .catch(err=>{
-                trx.rollback
-                })
-    }).catch(res.status(404).json('Unable to register'))
+            })
+            .then(trx.commit)
+            .catch(trx.rollback)
+    }).catch(err=>res.status(404).json(err.detail))
 
 }
 module.exports={
