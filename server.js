@@ -24,7 +24,11 @@ app.use(cors())
 app.get('/',(req,res)=>{
  //    db.select().from('users').then(
  // )
-res.send('URL:  '+process.env.DATABASE_URL)
+    const val=db.select('*').from('users')
+        .then((foo) => {
+            res.send('URL:  '+foo)
+        });
+    res.send('no repsonse')
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
