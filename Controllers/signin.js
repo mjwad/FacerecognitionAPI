@@ -27,7 +27,7 @@ const handleSignin=(req,res,db,bcrypt)=>{
             }else{
                 res.status(404).json('Email or Password Inavlid')
             }
-        }).catch(err=>res.status(404).json(db))
+        }).catch(err=>res.status(404).json('Error Signing In'))
     // res.status(404).json('error signin')
 
 
