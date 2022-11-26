@@ -26,7 +26,7 @@ const app=express()
 app.use(bodyParser.json())
 app.use(cors())
 app.get('/',(req,res)=>{
-    res.send(database.user)
+    res.json('Its working')
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
@@ -35,7 +35,7 @@ app.post('/image',(req,res)=>{image.imagehandle(req,res,db)})
 app.post('/fetchImageApi',(req,res)=>{image.fetchImageApi(req,res)})
 
 //Listen
-app.listen(3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
     console.log('App is Running at 3000 port')
 })
 /*
