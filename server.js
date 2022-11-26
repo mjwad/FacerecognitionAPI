@@ -12,10 +12,8 @@ const clarifai=require('clarifai')
 const db=require('knex')({
     client:'pg',
     connection:{
-         host:'localhost',
-        user:'postgres',
-        password:'123',
-        database:'smart_brain'
+         connectionString:process.env.DATABASE_URL,
+        ssl:true
     }
 })
 // db.select().from('users').then(
