@@ -29,7 +29,7 @@ app.get('/',(req,res)=>{
             ssl:true
         }
     })
-    res.json(db)
+    res.send('URL'+db.__knex__)
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
