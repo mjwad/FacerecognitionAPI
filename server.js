@@ -27,8 +27,10 @@ app.use(bodyParser.json())
 app.use(cors())
 app.get('/',(req,res)=>{
     db.select().from('users').then(
-        res.send(data)
-)
+ response=> {
+  if(response)
+      res.send(response)
+ })
 
 })
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)})
