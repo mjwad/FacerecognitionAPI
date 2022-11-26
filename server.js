@@ -12,10 +12,8 @@ const pgconfig = parse(process.env.DATABASE_URL);
 pgconfig.ssl = { rejectUnauthorized: false };
 const db=require('knex')({
     client:'pg',
-    connection:{
-        connectionString:pgconfig,
-        ssl:false
-    }
+    connection:pgconfig,
+
 })
 // db.select().from('users').then(
 //     data=>console.log(data)
